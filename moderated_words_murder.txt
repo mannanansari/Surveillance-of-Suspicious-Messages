@@ -1,0 +1,7 @@
+Murder
+Weapons
+gun
+Dagger
+bomb
+execute
+kill

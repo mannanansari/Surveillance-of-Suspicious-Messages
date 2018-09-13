@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/xml/ns/j2ee/web-app_2_3.dtd">
+<!--<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"> -->
+<web-app>
+<display-name>chat</display-name>
+
+<context-param>
+		<param-name>ADMIN_PATH</param-name>
+		<param-value>/SMD/servlet/chatAdmin</param-value>
+</context-param>
+<context-param>
+         <param-name>LISTROOMS_PATH</param-name>
+         <param-value>/SMD/servlet/listRoom</param-value>
+</context-param>
+
+
+<context-param>
+         <param-name>CHATROOM_PATH</param-name>
+         <param-value>/SMD/servlet/chatRoom</param-value>
+</context-param>
+
+<filter>
+    <filter-name>MessageLogFilter</filter-name>
+	<display-name>MessageLogFilter</display-name>
+	<filter-class>MessageLogFilter</filter-class>
+</filter>
+
+<filter>
+	<filter-name>MessageModeratorFilter</filter-name>
+	<display-name>MessageModeratorFilter</display-name>
+	<filter-class>MessageModeratorFilter</filter-class>
+
+<init-param>
+<param-name>moderated_words_file</param-name>
+<param-value>/moderated_words.txt</param-value>
+</init-param>
+
+<init-param>
+<param-name>moderated_words_file_m</param-name>
+<param-value>/moderated_words_murder.txt</param-value>
+</init-param>
+<init-param>
+<param-name>moderated_words_file_th</param-name>
+<param-value>/moderated_words_theft.txt</param-value>
+</init-param>
+<init-param>
+<param-name>moderated_words_file_k</param-name>
+<param-value>/moderated_words_kidnap.txt</param-value>
+</init-param>
+<init-param>
+<param-name>moderated_words_file_c</param-name>
+<param-value>/moderated_words_corruption.txt</param-value>
+</init-param>
+<init-param>
+<param-name>moderated_words_file_tr</param-name>
+<param-value>/moderated_words_terror.txt</param-value>
+</init-param>
+
+
+
+<init-param>
+<param-name>warning_message</param-name>
+<param-value>***Message filteres by the moderator.</param-value>
+</init-param>
+
+</filter>
+
+<filter-mapping>
+<filter-name>MessageModeratorFilter</filter-name>
+<url-pattern>/servlet/chatRoom</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+<filter-name>MessageLogFilter</filter-name>
+<url-pattern>/servlet/chatRoom</url-pattern>
+</filter-mapping>
+
+<servlet>
+<servlet-name>chatAdmin</servlet-name>
+<display-name>chatAdmin</display-name>
+<servlet-class>ChatAdminServlet</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>chatRoom</servlet-name>
+<display-name>chatRoom</display-name>
+<servlet-class>ChatRoomsServlet</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>listRoom</servlet-name>
+<display-name>listRoom</display-name>
+<servlet-class>ListRoomServlet</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>LogServlet</servlet-name>
+<servlet-class>LogServlet</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>RegisterServlet</servlet-name>
+<servlet-class>RegisterServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>chatAdmin</servlet-name>
+<url-pattern>/servlet/chatAdmin</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>chatRoom</servlet-name>
+<url-pattern>/servlet/chatRoom</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>listRoom</servlet-name>
+<url-pattern>/servlet/listRoom</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>LogServlet</servlet-name>
+<url-pattern>/LogServlet</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>RegisterServlet</servlet-name>
+<url-pattern>/RegisterServlet</url-pattern>
+</servlet-mapping>
+</web-app>

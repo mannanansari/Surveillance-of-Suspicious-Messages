@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Registration Form</title>
+</head>
+<body bgcolor="#AFEEEE">
+<form id="form" action="http://localhost:8080/SMD/RegisterServlet" method="POST">
+<marquee bgcolor=orange  direction=right> Please Register </marquee> 
+<center>
+<table border="0" width="30%" cellspacing="3" cellpadding="2">
+<tr>
+<td><b>First name</b></td>
+<td>
+<input type="text" name="Name"  id="Name" placeholder="Name" size="45" maxlength="20" tabindex="5" required>
+</td></tr>
+<td><b>Last name</b></td>
+<td>
+<input type="text" name="LastName"  id="Lastname" placeholder="Lastname"  size="45" maxlength="40" tabindex="6" required>
+</td></tr>
+<tr>
+<td><b>Email</b></td>
+<td>
+<input type="Email" name="Email" id="Email"  placeholder="Email Address"  size="45" maxlength="128" tabindex="7" required data-ime-mode-disabled>
+</td>
+</tr>
+<td><b>Password</b></td>
+<td>
+<input type="Password" name="Password"  id="Password" placeholder="Password" size="45" tabindex="8" required>
+</td>
+</tr>
+<td><b>Gender</b></td>
+<td>
+<input type="radio" name="radiobutton" value="Male" required>
+        <label >Male</label>
+<input type="radio" name="radiobutton" value="Female">
+        <label >Female</label>
+</td>
+</tr>
+<td><input type="submit" name="submit" value="SIGN UP"></td>
+<td><input type="reset" name="reset" value="RESET" ><td>
+</tr>
+</table>
+</center>
+</form>
+</body>
+</html>

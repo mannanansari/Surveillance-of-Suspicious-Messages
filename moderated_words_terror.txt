@@ -1,0 +1,12 @@
+terror
+Bomb
+suicide_attack
+holy_place
+destruction
+explosives
+ak47
+alqaida
+isis
+vehicle
+location
+destruction
